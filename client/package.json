@@ -1,0 +1,78 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "entry": {
+    "index": "./src/index.js"
+  },
+  "devDependencies": {
+    "atool-build": "^1.0.2",
+    "babel-eslint": "^8.2.5",
+    "babel-plugin-import": "^1.8.0",
+    "babel-plugin-dev-expression": "^0.2.1",
+    "babel-plugin-dva-hmr": "^0.4.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "dora": "^0.5.0",
+    "dora-plugin-browser-history": "^0.2.0",
+    "dora-plugin-proxy": "^0.8.5",
+    "dora-plugin-webpack": "^1.0.0",
+    "dora-plugin-webpack-hmr": "^0.2.1",
+    "eslint": "^5.0.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-react": "^7.10.0",
+    "glob": "^7.1.2",
+    "mockjs": "^1.0.1-beta3",
+    "rc-tween-one": "^2.1.1",
+    "redbox-react": "^1.6.0",
+    "robe-ajax": "^1.0.1",
+    "watchjs": "0.0.0"
+  },
+  "dependencies": {
+    "antd": "^3.6.5",
+    "assets-webpack-plugin": "^3.8.4",
+    "axios": "^0.18.0",
+    "classnames": "^2.2.6",
+    "copy-webpack-plugin": "^4.5.2",
+    "d3": "^5.5.0",
+    "dva": "^2.3.1",
+    "dva-loading": "^2.0.3",
+    "js-cookie": "^2.2.0",
+    "material-ui": "^0.20.1",
+    "prop-types": "^15.6.2",
+    "qs": "^6.5.2",
+    "rc-banner-anim": "^2.0.1",
+    "rc-queue-anim": "^1.6.5",
+    "rc-scroll-anim": "^2.5.3",
+    "react": "^16.4.1",
+    "react-countup": "^3.0.3",
+    "react-dom": "^16.4.1",
+    "react-dropzone": "^3.13.4",
+    "react-file-tree": "0.0.8",
+    "react-fontawesome": "^1.6.1",
+    "react-highlight": "^0.12.0",
+    "react-router-dom": "^4.0.0",
+    "react-tap-event-plugin": "^3.0.3",
+    "recharts": "^1.0.0-beta.10",
+    "reqwest": "^2.0.5",
+    "superagent": "^3.8.3",
+    "webpack": "^4.14.0"
+  },
+  "scripts": {
+    "start": "dora --plugins \"proxy,webpack?publicPath=/,webpack-hmr,browser-history?index=/src/index.html\"",
+    "dev": "dora --plugins \"webpack?publicPath=/,webpack-hmr,browser-history?index=/src/index.html\"",
+    "lint": "eslint --fix --ext .js src",
+    "build": "atool-build"
+  },
+  "theme": "./src/theme.js",
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "location",
+      "localStorage"
+    ]
+  }
+}

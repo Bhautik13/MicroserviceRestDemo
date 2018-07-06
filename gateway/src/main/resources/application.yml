@@ -1,0 +1,59 @@
+server:
+  port: ${PORT:8787}
+
+spring:
+  application:
+    name: gateway
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+    tomcat:
+      test-on-borrow: true
+      validation-query: SELECT 1
+      test-while-idle: true
+      validation-interval: 50000
+    platform: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: POSTGRESQL
+    show-sql: true
+  
+  security:
+    user:
+      name: root
+      password: password
+    sessions: ALWAYS
+logging:
+  level:
+    org.springframework.cloud.netflix.zuul: TRACE
+
+debug: false
+zuul:
+  routes:  
+    uaa:
+      path: /uaa/**
+      sensitiveHeaders:
+      serviceId: config
+    product:
+      path: /product/**
+      sensitiveHeaders:
+      serviceId: account-service
+
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:8787/uaa/oauth/token
+      user-authorization-uri: http://localhost:8787/uaa/oauth/authorize      
+    resource:
+      user-info-uri: http://localhost:8787/uaa/loggedInUser
+      prefer-token-info: false    
+   
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true

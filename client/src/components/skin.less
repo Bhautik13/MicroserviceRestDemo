@@ -1,0 +1,39 @@
+@import "./vars.less";
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+:global {
+  .ant-modal-mask {
+    background-color: rgba(55, 55, 55, 0.2);
+  }
+  .ant-modal-content {
+    box-shadow: none;
+  }
+  .ant-card {
+    margin-bottom: 10px;
+    &:hover {
+      overflow: auto;
+    }
+  }
+  .ant-pagination-item {
+    margin-bottom: 8px;
+  }
+  .ant-badge:not(.ant-badge-status) {
+    margin-right: 16px;
+  }
+  .head-example {
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    background: #eee;
+    display: inline-block;
+  }
+  body {
+    text-rendering: geometricPrecision;
+    font-size: 10px;
+  }
+  .ant-fullcalendar-header .ant-select, .ant-fullcalendar-header .ant-button {
+    margin-bottom: 10px;
+  }
+  .ant-input-group > [class*="col-"] {
+    margin-bottom: 10px
+  }
+}

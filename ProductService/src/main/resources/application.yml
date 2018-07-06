@@ -1,0 +1,29 @@
+server:  
+  port: ${PORT:8686}
+
+spring:  
+  application:
+    name: account-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/test1?useSSL=false
+    username: root
+    password: ROOT@123
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      
+logging:
+  level:
+    org.springframework.security: DEBUG
+      
+security:
+  oauth2:
+    client:
+      client-id: account-service
+      client-secret: password
+      scope: read
+      access-token-uri: http://localhost:8989/oauth/token
+      user-authorization-uri: http://localhost:8989/oauth/authorize
+    resource:
+      token-info-uri: http://localhost:8989/oauth/check_token
